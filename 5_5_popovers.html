@@ -82,35 +82,76 @@
     <!--########################START HERE#########################-->
 
     <!-- POPOVER -->
-    <button>
+    <button
+    class="btn " 
+    data-toggle="popover"
+    data-placement="top"
+    title="Popover Title"
+    data-content="Lorem ipsum dole rews drte"
+
+    
+    >
       Toggle popover
     </button>
 
-    <button>
+     <button
+    class="btn btn-secondary" 
+    data-toggle="popover"
+    data-placement="bottom"
+    title="Popover Title"
+    data-content="Lorem ipsum dole rews drte"
+
+    
+    >
       Toggle popover
     </button>
 
-    <button>
+    <button
+    class="btn btn-success" 
+    data-toggle="popover"
+    data-placement="left"
+    title="Popover Title"
+    data-content="Lorem ipsum dole rews drte"
+
+    
+    >
       Toggle popover
     </button>
 
-    <button>
+  <button
+    class="btn btn-info" 
+    data-toggle="popover"
+    data-placement="right"
+    title="Popover Title"
+    data-content="Lorem ipsum dole rews drte"
+
+    
+    >
       Toggle popover
     </button>
 
     <br><br>
 
     <!-- DISMISSIBLE POPOVER -->
-    <button>
+      <button
+      id="myPopover"
+    class="btn btn-info" 
+    data-toggle="popover"
+    data-placement="right"
+    title="Popover Title"
+    data-content="Lorem ipsum dole rews drte"
+data-trigger="focus"
+    
+    >
       Toggle popover
     </button>
 
     <hr>
 
     <!-- CONTROL WITH JS -->
-    <button>Show Popover</button>
-    <button>Hide Popover</button>
-    <button>Toggle Popover</button>
+    <button class="btn btn-secondary" onclick="showPopover()">Show Popover</button>
+    <button class="btn btn-secondary" onclick="hidePopover()">Hide Popover</button>
+    <button class="btn btn-secondary" onclick="togglePopover()">Toggle Popover</button>
   </div>
 
   <div style="margin-top:500px;"></div>
@@ -120,6 +161,53 @@
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/js/bootstrap.min.js" integrity="sha384-h0AbiXch4ZDo7tp9hKZ4TsHbi047NrKGLO3SEJAg45jXxnGIfYzk4Si90RDIqNm1" crossorigin="anonymous"></script>
   <script>
     
+    $('[data-toggle="popover"]').popover();
+
+function showPopover(){
+ $('#myPopover').popover('show');
+
+}
+
+function hidePopover(){
+ $('#myPopover').popover('hide');
+
+}
+
+   function togglePopover(){
+ $('#myPopover').popover('toggle');
+
+}
+
+//events
+
+$('#myPopover').on('show.bs.popover', function(){
+
+  console.log('Popover show');
+});
+
+
+$('#myPopover').on('hide.bs.popover', function(){
+
+  console.log('Popover hide');
+});
+
+
+$('#myPopover').on('toggle.bs.popover', function(){
+
+  console.log('Popover toggle');
+});
   </script>
+
+  <style>
+    .btn{
+      color: rebeccapurple;
+      
+      
+      
+      
+    }
+
+   
+    </style>
 </body>
 </html>
