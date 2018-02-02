@@ -82,28 +82,28 @@
     <!--########################START HERE#########################-->
 
     <!-- TOOLTIPS -->
-    <button>Tooltip On Top</button>
-    <button>Tooltip On Right</button>
-    <button>Tooltip On Bottom</button>
-    <button>Tooltip On Left</button>
-
+    <button class="btn btn-primary" data-toggle="tooltip" data-placement="top" title="Tooltip on top">Tooltip On Top</button>
+    <button class="btn btn-success" data-toggle="tooltip" data-placement="right" title="Tooltip on Right">Tooltip On Right</button>
+    <button class="btn btn-danger" data-toggle="tooltip" data-placement="bottom" title="Tooltip on Bottom">Tooltip On Bottom</button>
+    <button class="btn btn-secondary" data-toggle="tooltip" data-placement="left" title="Tooltip on Left">Tooltip On Left</button>
+ 
     <br><br>
 
     <!-- TOOLTIPS WITH HTML -->
-    <button>Tooltip On With HTML</button>
+    <button id="hello" class="btn btn-primary" data-toggle="tooltip" data-placement="top" data-html="true" title="<h3> hell wassup</h3><p>lorem fdd</p>">with html</button>
 
     <hr>
 
     <!-- TRIGGER WITH JS -->
-    <button>
+    <button class="btn btn-secondary" onclick="showTooltip()">
       Show Tooltip
     </button>
 
-    <button>
+    <button class="btn btn-secondary" onclick="hideTooltip()">
       Hide Tooltip
     </button>
 
-    <button>
+    <button class="btn btn-secondary" onclick="toggleTooltip()">
       Toggle Tooltip
     </button>
 
@@ -116,6 +116,42 @@
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/js/bootstrap.min.js" integrity="sha384-h0AbiXch4ZDo7tp9hKZ4TsHbi047NrKGLO3SEJAg45jXxnGIfYzk4Si90RDIqNm1" crossorigin="anonymous"></script>
   <script>
     
+    //int tooltips
+    $('[data-toggle="tooltip"]').tooltip();
+
+    function showTooltip(){
+      $('#hello').tooltip('show');
+    }
+
+     function toggleTooltip(){
+      $('#hello').tooltip('toggle');
+    }
+
+     function hideTooltip(){
+      $('#hello').tooltip('hide');
+    }
+
+//tooltip event
+
+$('#hello').on('show.bs.tooltip', function(){
+console.log('Tooltip Show');
+
+});
+
+$('#hello').on('shown.bs.tooltip', function(){
+console.log('Tooltip Shown');
+
+});
+
+$('#hello').on('hide.bs.tooltip', function(){
+console.log('Tooltip hide');
+
+});     
+
+$('#hello').on('hidden.bs.tooltip', function(){
+console.log('Tooltip hidden');
+
+});
   </script>
 </body>
 </html>
